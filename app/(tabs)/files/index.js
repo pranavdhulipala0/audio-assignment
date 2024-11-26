@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as DocumentPicker from "expo-document-picker";
+import { Video } from "expo-av";
+import * as Sharing from "expo-sharing";
 
 export default function FilesScreen() {
   const [documents, setDocuments] = useState([]);
@@ -204,24 +206,43 @@ export default function FilesScreen() {
         </Modal>
 
         {/* View Document Modal */}
-        {viewedDocument && (
-          <Modal visible={true} transparent={true} animationType="fade">
-            <View style={styles.modalOverlay}>
-              <View style={styles.viewDocumentContainer}>
-                <Image
-                  source={{ uri: viewedDocument.uri }}
-                  style={styles.documentImage}
-                />
-                <TouchableOpacity
-                  style={styles.closeButton}
-                  onPress={closeViewedDocument}
-                >
-                  <Text style={styles.closeButtonText}>Close</Text>
-                </TouchableOpacity>
+        {viewedDocument &&
+          (viewedDocument.uri.endsWith(".pdf") ? (
+            // Directly share the PDF file
+            Sharing.shareAsync(viewedDocument.uri)
+          ) : (
+            <Modal visible={true} transparent={true} animationType="fade">
+              <View style={styles.modalOverlay}>
+                <View style={styles.viewDocumentContainer}>
+                  {viewedDocument.uri.endsWith(".jpeg") ? (
+                    // If it's an image, render Image component
+                    <Image
+                      source={{ uri: viewedDocument.uri }}
+                      style={styles.documentImage}
+                    />
+                  ) : viewedDocument.uri.endsWith(".mp4") ? (
+                    // If it's a video, render Video component
+                    <Video
+                      source={{ uri: viewedDocument.uri }}
+                      style={styles.documentImage}
+                      useNativeControls
+                      resizeMode="contain"
+                      isLooping
+                    />
+                  ) : (
+                    <Text style={styles.errorText}>Unsupported file type</Text> // Handle unsupported file types
+                  )}
+
+                  <TouchableOpacity
+                    style={styles.closeButton}
+                    onPress={closeViewedDocument}
+                  >
+                    <Text style={styles.closeButtonText}>Close</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-            </View>
-          </Modal>
-        )}
+            </Modal>
+          ))}
       </View>
     </View>
   );
