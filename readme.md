@@ -26,5 +26,5 @@ Follow these steps to set up and run the project on your local machine:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/eksaq/file-management-audio-app.git
-cd file-management-audio-app
+git clone <repository>
+cd <project_folder>
