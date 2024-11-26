@@ -7,7 +7,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
     <View style={styles.circle}>
-      <Image source={require('../assets/images/mainLogo.png')} style={styles.image} />
+      <Image source={require('../assets/images/main_logo.png')} style={styles.image} />
     </View>
     <View style={styles.maintext}>
     <Image source={require('../assets/images/title.png')} style={styles.image} />
@@ -16,13 +16,7 @@ export default function HomeScreen() {
     <Image source={require('../assets/images/arrow.png')} style={styles.image} />
     </TouchableOpacity>
   </View>
-  //   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-  //   <Text>Welcome to the Home Screen</Text>
-  //   <Button
-  //     title="Go to Audio"
-  //     onPress={() => router.push('/(tabs)/audio')}
-  //   />
-  // </View>
+
   );
 }
 const styles = StyleSheet.create({
