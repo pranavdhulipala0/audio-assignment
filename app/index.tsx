@@ -1,4 +1,3 @@
-
 import { Text, View,Image,StyleSheet,TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 
@@ -7,7 +6,6 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
     <View style={styles.circle}>
-      <Image source={require('../assets/images/main_logo.png')} style={styles.image} />
     </View>
     <View style={styles.maintext}>
     <Image source={require('../assets/images/title.png')} style={styles.image} />
@@ -16,7 +14,7 @@ export default function HomeScreen() {
     <Image source={require('../assets/images/arrow.png')} style={styles.image} />
     </TouchableOpacity>
   </View>
-
+ 
   );
 }
 const styles = StyleSheet.create({
