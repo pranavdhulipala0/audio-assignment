@@ -2,6 +2,7 @@
 
 This is a React Native application developed using [Expo](https://expo.dev/) that serves as a **File Management System** and an **Audio Recorder**. The app is designed to streamline file organization and audio recording tasks for the Eksaq company.
 
+POC : [Click Here](https://drive.google.com/drive/folders/1LyXDgl_WSGe3TicgCzZnxak5huXZFxXs?usp=sharing)
 ## Features
 - **File Management System**: Organize and manage your files efficiently.
 - **Audio Recorder**: Record, playback, and save audio seamlessly.
